@@ -13,6 +13,15 @@ local TextButton = Instance.new("TextButton")
 local UICorner_3 = Instance.new("UICorner")
 local TextButton_2 = Instance.new("TextButton")
 local UICorner_4 = Instance.new("UICorner")
+local TextButton_3 = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local TextButton_4 = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local ImageButton = Instance.new("ImageButton")
+local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
+local UICorner_7 = Instance.new("UICorner")
 
 --Properties:
 
@@ -52,7 +61,7 @@ TextBox.BorderSizePixel = 0
 TextBox.Position = UDim2.new(0.0968773663, 0, 0.185599998, 0)
 TextBox.Size = UDim2.new(0.80319041, 0, 0.211999997, 0)
 TextBox.Font = Enum.Font.FredokaOne
-TextBox.PlaceholderText = "Roblox Music ID"
+TextBox.PlaceholderText = "Roblox Music ID (Game must have access - I recommend using an Audio logger to get id's from the game)"
 TextBox.Text = ""
 TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextBox.TextScaled = true
@@ -94,6 +103,58 @@ TextButton_2.TextWrapped = true
 UICorner_4.CornerRadius = UDim.new(0, 10)
 UICorner_4.Parent = TextButton_2
 
+TextButton_3.Parent = Frame
+TextButton_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.BorderSizePixel = 0
+TextButton_3.Position = UDim2.new(0.943711281, 0, -0.0799999982, 0)
+TextButton_3.Size = UDim2.new(0.0997161716, 0, 0.184640229, 0)
+TextButton_3.Font = Enum.Font.FredokaOne
+TextButton_3.Text = "X"
+TextButton_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_3.TextScaled = true
+TextButton_3.TextSize = 14.000
+TextButton_3.TextWrapped = true
+
+UICorner_5.CornerRadius = UDim.new(0, 100)
+UICorner_5.Parent = TextButton_3
+
+UIAspectRatioConstraint.Parent = TextButton_3
+
+TextButton_4.Parent = Frame
+TextButton_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_4.BorderSizePixel = 0
+TextButton_4.Position = UDim2.new(0.81676954, 0, -0.0799999982, 0)
+TextButton_4.Size = UDim2.new(0.0997161716, 0, 0.184640229, 0)
+TextButton_4.Font = Enum.Font.FredokaOne
+TextButton_4.Text = "-"
+TextButton_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_4.TextScaled = true
+TextButton_4.TextSize = 14.000
+TextButton_4.TextWrapped = true
+
+UICorner_6.CornerRadius = UDim.new(0, 100)
+UICorner_6.Parent = TextButton_4
+
+UIAspectRatioConstraint_2.Parent = TextButton_4
+
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.932676494, 0, 0.164532021, 0)
+ImageButton.Size = UDim2.new(0.100000001, 0, 0.100000001, 0)
+ImageButton.Visible = false
+ImageButton.Image = "http://www.roblox.com/asset/?id=70665444824450"
+ImageButton.Active = true
+ImageButton.Draggable = true
+
+UIAspectRatioConstraint_3.Parent = ImageButton
+
+UICorner_7.CornerRadius = UDim.new(0, 100)
+UICorner_7.Parent = ImageButton
+
 TextButton.Activated:Connect(function()
 	local oldMusic = TextButton_2:FindFirstChildWhichIsA("Sound")
 
@@ -111,4 +172,19 @@ TextButton_2.Activated:Connect(function()
 	if oldMusic then
 		oldMusic:Destroy()
 	end
+end)
+
+TextButton_4.Activated:Connect(function()
+	Frame.Visible = false
+	ImageButton.Visible = true
+end)
+
+ImageButton.Activated:Connect(function()
+	ImageButton.Visible = false
+	Frame.Visible = true
+end)
+
+TextButton_3.Activated:Connect(function()
+	Frame:Destroy()
+	ImageButton:Destroy()
 end)
