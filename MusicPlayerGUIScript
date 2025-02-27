@@ -19,9 +19,10 @@ local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 local TextButton_4 = Instance.new("TextButton")
 local UICorner_6 = Instance.new("UICorner")
 local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
-local ImageButton = Instance.new("ImageButton")
+local TextButton_5 = Instance.new("TextButton")
 local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
 local UICorner_7 = Instance.new("UICorner")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
 
 --Properties:
 
@@ -139,21 +140,28 @@ UICorner_6.Parent = TextButton_4
 
 UIAspectRatioConstraint_2.Parent = TextButton_4
 
-ImageButton.Parent = ScreenGui
-ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton.BorderSizePixel = 0
-ImageButton.Position = UDim2.new(0.932676494, 0, 0.164532021, 0)
-ImageButton.Size = UDim2.new(0.100000001, 0, 0.100000001, 0)
-ImageButton.Visible = false
-ImageButton.Image = "http://www.roblox.com/asset/?id=70665444824450"
-ImageButton.Active = true
-ImageButton.Draggable = true
+TextButton_5.Parent = ScreenGui
+TextButton_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_5.BorderSizePixel = 0
+TextButton_5.Position = UDim2.new(0.91570884, 0, 0.173399016, 0)
+TextButton_5.Size = UDim2.new(0.0566502474, 0, 0.106896549, 0)
+TextButton_5.Font = Enum.Font.FredokaOne
+TextButton_5.Text = "Open Music"
+TextButton_5.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_5.TextScaled = true
+TextButton_5.TextSize = 14.000
+TextButton_5.TextWrapped = true
+TextButton_5.Active = true
+TextButton_5.Draggable = true
 
-UIAspectRatioConstraint_3.Parent = ImageButton
+UIAspectRatioConstraint_3.Parent = TextButton_5
 
 UICorner_7.CornerRadius = UDim.new(0, 100)
-UICorner_7.Parent = ImageButton
+UICorner_7.Parent = TextButton_5
+
+UITextSizeConstraint.Parent = TextButton_5
+UITextSizeConstraint.MaxTextSize = 20
 
 TextButton.Activated:Connect(function()
 	local oldMusic = TextButton_2:FindFirstChildWhichIsA("Sound")
@@ -174,17 +182,17 @@ TextButton_2.Activated:Connect(function()
 	end
 end)
 
-TextButton_4.Activated:Connect(function()
-	Frame.Visible = false
-	ImageButton.Visible = true
+TextButton_5.Activated:Connect(function()
+	Frame.Visible = true
+	TextButton_5.Visible = false
 end)
 
-ImageButton.Activated:Connect(function()
-	Frame.Visible = true
-	ImageButton.Visible = false
+TextButton_4.Activated:Connect(function()
+	TextButton_5.Visible = true
+	Frame.Visible = false
 end)
 
 TextButton_3.Activated:Connect(function()
+	TextButton_5:Destroy()
 	Frame:Destroy()
-	ImageButton:Destroy()
 end)
