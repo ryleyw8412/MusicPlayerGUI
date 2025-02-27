@@ -180,8 +180,8 @@ TextButton_4.Activated:Connect(function()
 end)
 
 ImageButton.Activated:Connect(function()
-	ImageButton.Visible = false
 	Frame.Visible = true
+	ImageButton.Visible = false
 end)
 
 TextButton_3.Activated:Connect(function()
