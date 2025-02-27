@@ -26,7 +26,6 @@ Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.564312935, 0, 0.357635468, 0)
 Frame.Size = UDim2.new(0.327695727, 0, 0.307881773, 0)
-Frame.Draggable = true
 
 UICorner.CornerRadius = UDim.new(0, 15)
 UICorner.Parent = Frame
@@ -95,7 +94,7 @@ UICorner_4.Parent = TextButton_2
 
 TextButton.Activated:Connect(function()
 	local oldMusic = TextButton_2:FindFirstChildWhichIsA("Sound")
-	
+
 	if oldMusic then
 		oldMusic:Destroy()
 	end
