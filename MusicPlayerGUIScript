@@ -123,6 +123,7 @@ TextButton.Activated:Connect(function()
 	end
 	local Music = Instance.new("Sound", TextButton_2)
 	Music.SoundId = "rbxassetid://"..TextBox.Text
+	Music.Looped = true
 	Music:Play()
 end)
 
